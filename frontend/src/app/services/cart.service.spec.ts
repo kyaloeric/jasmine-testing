@@ -42,13 +42,13 @@ describe('CartService', () => {
 
   describe('addToCart', () => {
     it('should send a POST request to the server', () => {
-      const product = { /* your product data here */ };
+      const product = { };
 
       service.addToCart(product).subscribe();
 
       const req = httpTestingController.expectOne('http://localhost:4700/cart/add');
       expect(req.request.method).toEqual('POST');
-      req.flush({ /* your response data here */ });
+      req.flush({  });
     });
   });
 
@@ -60,7 +60,7 @@ describe('CartService', () => {
 
       const req = httpTestingController.expectOne(`http://localhost:4700/cart/viewCart/${userId}`);
       expect(req.request.method).toEqual('GET');
-      req.flush({ /* your response data here */ });
+      req.flush({  });
     });
   });
 
@@ -72,7 +72,7 @@ describe('CartService', () => {
 
       const req = httpTestingController.expectOne(`http://localhost:4700/cart/deleteAll/${userId}`);
       expect(req.request.method).toEqual('DELETE');
-      req.flush({ /* your response data here */ });
+      req.flush({  });
     });
   });
 
@@ -84,7 +84,7 @@ describe('CartService', () => {
 
       const req = httpTestingController.expectOne(`http://localhost:4700/cart/removeOne/${productId}`);
       expect(req.request.method).toEqual('DELETE');
-      req.flush({ /* your response data here */ });
+      req.flush({  });
     });
   });
 });
