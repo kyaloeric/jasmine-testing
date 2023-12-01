@@ -1,0 +1,153 @@
+###Register user
+POST http://localhost:4700/user/register
+Content-Type: application/json 
+
+{
+   "userName": "Eric Now",
+   "profilePic": "https://images.com/photo-1682687982423-295485af248a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
+   "userPhone": "+2547734470934",
+   "userEmail": "erickya@gmail.com",
+   "userPassword": "12345678"
+}
+
+### fetching users
+GET http://localhost:4700/user/
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+### checking user details
+
+GET http://localhost:4700/user/checkUserDetails/
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS2lva28iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6Nzc4NzcwNTY2LCJyb2xlIjoidXNlciIsImlhdCI6MTcwMTIzNjQ4NCwiZXhwIjoxNzAxNTk2NDg0fQ.qqF8XxfMaRwx5cwIRFyui9AuZ198fvKoip8chVRSS1Y
+
+
+
+###getting user details 
+GET http://localhost:4700/user/details/67b4672d-a379-49b7-ad5d-1e6ad7ee7241
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmlja3lhbG8xOUBnbWFpbC5jb20iLCJ1c2VyUGhvbmUiOjAsImlhdCI6MTcwMTE3ODg0MSwiZXhwIjoxNzAxNTM4ODQxfQ.r0non7T9xTJ7goyL9qYzADQRQgZIbSeJbaETlvqQjnM
+
+###LOGIN USER 
+POST http://localhost:4700/user/login
+Content-Type: application/json 
+
+{
+   "userEmail":"erickya@gmail.com",
+   "userPassword":"12345678"
+}
+
+
+
+
+###Update user details, You use user Details to update his details
+PUT http://localhost:4700/user/update/fdecb1bf-69da-47a0-875e-c47f53af720c
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+Content-Type: application/json 
+
+{
+   "userName": "Eric Kioko",
+   "profilePic": "https://images.unsplash.com/photo-1682687982423-295485af248a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
+   "userPhone": "0778770566",
+   "userEmail": "eric3@outlook.com",
+   "userPassword": "12345678"
+}
+
+###Add product
+POST http://localhost:4700/product/add 
+Content-Type: application/json 
+
+{
+    "productName":"JBL Woofer",
+    "productCost": "4500",
+    "productClassification": "Radio",
+    "productCategory": "subwoofer",
+    "productDescription":"A 50V heater",
+    "productPrice":"27000",
+    "productImage":"https://tv"
+}
+
+
+
+###Update product ,YOU use productId to update its details
+
+PUT http://localhost:4700/product/update/cadb5ab6-7c49-4cfa-bdf8-f6f4424a806f
+Content-Type: application/json 
+
+{
+    "productName":"Black Mamba",
+    "productDescription":"A Kabras product",
+    "productClassification":"Speaker",
+    "productCategory":"Subwoofer",
+    "productCost":"520",
+    "productImg":"http://res.cloudinary.com/dkgtf3hhj/image/upload/v1692984617/nlzi4cmqqicvoiz2bt7o.jpg"
+}
+
+
+###view One product
+
+GET http://localhost:4700/product/viewOneProduct/3ece5b23-50fa-430a-841c-3abfb32f4d92
+
+
+###VIEW ALL Products 
+
+GET http://localhost:4700/product/allProducts
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+
+###VIEW ALL Products by category
+GET http://localhost:4700/product/allProducts/subwoofer
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+
+###delete product
+DELETE http://localhost:4700/product/delete/ea8b89f2-8c40-483c-b294-715fced15eea
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+
+ 
+###ADD PRODUCT TO CART 
+POST http://localhost:4700/cart/add 
+Content-Type: application/json 
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+{
+    "productName":"Black Mamba",
+    "productDescription":"A Kabras product",
+    "productClassification":"Speaker",
+    "productCategory":"Subwoofer",
+    "boughtBy": "fdecb1bf-69da-47a0-875e-c47f53af720c",
+    "productCost":"520",
+    "productImg":"http://res.cloudinary.com/dkgtf3hhj/image/upload/v1692984617/nlzi4cmqqicvoiz2bt7o.jpg"
+   
+}
+
+
+###VIEW CART , You use UserId to view Cart
+
+GET http://localhost:4700/cart/viewCart/fdecb1bf-69da-47a0-875e-c47f53af720c
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+###ClearAll Product from cart, You use UserId clear all cart
+DELETE http://localhost:4700/cart/deleteAll/
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+###Remove one item from the cart ,You use productId to remove one item from the cart
+DELETE http://localhost:4700/cart/removeOne/ 
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+###reset password request
+POST http://localhost:4700/reset/reset-password
+Content-Type: application/json 
+
+{
+   "userEmail":"jenny123@outlook.com",
+}
+
+
+
+###reseting using token
+POST http://localhost:4700/reset/reset-password/A7EE72
+Content-Type: application/json 
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkVyaWMgS3lhbG8iLCJ1c2VyRW1haWwiOiJlcmljM0BvdXRsb29rLmNvbSIsInVzZXJQaG9uZSI6MCwiaWF0IjoxNzAxMDc5OTA1LCJleHAiOjE3MDE0Mzk5MDV9.zPjtJh54FM3Kr4sYpQJNc7s_6nUc4Du2ncJHAIYk_m4
+
+{
+   "newPassword":"1234567"
+}

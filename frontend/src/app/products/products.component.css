@@ -1,0 +1,29 @@
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+  
+a:hover,
+a:focus {
+    color: green;
+}
+
+.btn{
+    color: green;
+}
+  
+.btn,
+.btn:focus {
+    
+    outline: none !important;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

@@ -1,0 +1,29 @@
+<!-- navbar.component.html -->
+
+<div class="flex justify-between items-center border-b-2 border-gray-300 pb-3 mb-2 w-full bg-gradient-to-r from-blue-900 to-orange-500">
+  <a routerLink="/">
+    <h1 class="ml-10 text-3xl font-bold text-blue-500">Shopee</h1>
+  </a>
+
+  <div class="flex items-center space-x-4 mr-10">
+    <ng-container *ngIf="!loggedIn; else loggedInLinks">
+      <a routerLink="/" class="nav-link  rounded-md hover:bg-blue-600 hover:text-white  px-3 py-2 text-sm font-medium">Home</a>
+      <a routerLink="/about" class="nav-link rounded-md hover:bg-blue-600 hover:text-white p-1">About</a>
+      <a routerLink="/sign" class="nav-link rounded-md hover:bg-blue-600 hover:text-white p-1">Register</a>
+      <a routerLink="/login" class="nav-link rounded-md hover:bg-blue-600 hover:text-white p-1">Login</a>
+    </ng-container>
+    <ng-template #loggedInLinks>
+      <button (click)="openCartModal()" class="nav-link rounded-md hover:bg-blue-600 hover:text-white p-1">
+        <i class="fa-solid fa-cart-arrow-down fa-xl" style="color: #3b69ba;"></i>
+      </button>
+      <button (click)="toggleProfileDropdown()" class="nav-link rounded-md hover:bg-blue-600 hover:text-white p-1 focus:outline-none">
+        <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="Profile" class="w-8 h-8 rounded-full">
+      </button>
+      <div *ngIf="showProfileDropdown" class="absolute right-0 mt-40 w-48 bg-white border rounded-md shadow-lg">
+        <a routerLink="/profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Edit Profile</a>
+        <a (click)="logout()" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</a>
+      </div>
+    </ng-template>
+  </div>
+</div>
+

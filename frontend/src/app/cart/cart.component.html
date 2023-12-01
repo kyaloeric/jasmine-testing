@@ -1,0 +1,25 @@
+
+<div>
+    <h2>Your Cart</h2>
+  
+    <button (click)="addToCart()">Add Product to Cart</button>
+    <button (click)="viewCart()">View Cart</button>
+    <button (click)="removeAllFromCart()">Remove All from Cart</button>
+  </div>
+  
+  <div *ngIf="cartItems && cartItems.length > 0">
+    <h3>Cart Items</h3>
+  
+    <ul>
+      <li *ngFor="let item of cartItems">{{ item.productName }}</li>
+    </ul>
+  
+    <button *ngFor="let item of cartItems" (click)="removeOneFromCart(item.productId)">
+      Remove One {{ item.productName }} from Cart
+    </button>
+  </div>
+  
+  <div *ngIf="errorMessage">
+    <p style="color: red;">{{ errorMessage }}</p>
+  </div>
+  

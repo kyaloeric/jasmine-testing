@@ -1,0 +1,138 @@
+
+<div class="flex text-gray-900 ems-center space-x-4 justify-center">
+  <input [(ngModel)]="filter" 
+    type="text"
+    placeholder="Search for a product here..."
+    class="px-60 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-gray-500"
+  />
+  <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+    Search
+  </button>
+</div>
+
+  
+  <div id="popup-modal" *ngIf="!show" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-md max-h-full">
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                  </svg>
+                  <span class="sr-only">Close</span>
+              </button>
+              <div class="p-4 md:p-5 text-center">
+                  <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                  </svg>
+                  <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Delete this product?</h3>
+                  <button data-modal-hide="popup-modal" (click)="deleteProduct(product.productId)" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
+                      Yes
+                  </button>
+                  <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  
+  <div
+  
+*ngFor="let product of products | search: filter; let i = index" >
+
+  <div class="sec4-img4 bg-white p-4 rounded-md shadow-md mt-6">
+    <img
+    [src]="product.productImg"
+      alt=""
+      class="w-full h-32 object-cover mb-2 rounded-md"
+    />
+    <p class="text-sm">
+      {{product.productName}}
+    </p>
+    <p class="text-lg font-semibold">Ksh: {{product.productCost}}</p>
+   
+    <div class="py-6 px-15 border-t sm:px-5 dark:border-gray-700 flex justify-between">
+      <i class="fa-regular fa-trash-can fa-xl" (click)="deleteProduct(product.productId)" style="color: #d32b14;"></i>
+      <i (click)="hidden = !hidden; clickUpdateProductID(product.productId)" class="fa-regular fa-pen-to-square fa-xl" style="color: #3e55b1;"></i>
+    </div>
+    
+  </div>
+ 
+ 
+
+</div>
+</div>
+
+<div *ngIf="!hidden" class="relative newTour z-10 h-full" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  
+    <div  class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  
+    <div class="fixed createTour inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+      
+          <div class="pointer-events-auto relative w-screen max-w-md">
+         
+            <div class="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+              <button (click)="hidden=!hidden" type="button" class=" btn relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                <span class="absolute -inset-2.5"></span>
+                <span class="sr-only">Close</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+  
+            <div class="flex modal flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+              <div class="px-4 sm:px-6">
+                <h2 class="text-base font-semibold leading-6 text-gray-900" id="slide-over-title">UPDATE PRODUCT </h2>
+              </div>
+              <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                  <!-- Modal content -->
+                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  
+                      <form  class="p-4 md:p-5 " [formGroup]="updateProductForm" (ngSubmit)="updateProduct()" >
+                          <div class="grid gap-4 mb-4 grid-cols-2">
+                              <div class="col-span-2">
+                                  <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
+                                  <input  type="text" formControlName="productName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product Name" required="">
+                              </div>
+                      
+                              <div class="col-span-2 sm:col-span-1">
+                                  <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Cost</label>
+                                  <input  type="number" formControlName="productCost" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required="">
+                              </div>
+                              <div class="col-span-2">
+                                <label for="productCategory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                                <input type="text" formControlName="productCategory" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product Category" required="">
+                              </div>
+                              
+                              <div class="col-span-2">
+                                <label for="productClassification" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Classification</label>
+                                <input type="text" formControlName="productClassification" class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product Classification" required="">
+                              </div>
+                       
+                              <div class="col-span-2">
+                                  <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
+                                  <textarea formControlName="productDescription" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>                    
+                              </div>
+                              <div class="col-span-2">
+                                <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Image</label>
+                                <input type="text" formControlName="productImg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Image url" required="">
+                            </div>
+                          </div>
+                          <button  type="submit"  class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                              <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                              Update Product
+                          </button>
+                      </form>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,168 @@
+<!-- <app-navbar></app-navbar> -->
+
+
+<body  class="bg-gray-100 font-sans flex-1 max-h-full">
+  <!-- <aside class="w-1/5 bg-gradient-to-b from-blue-900 to-orange-500 text-white p-4">
+    <h2 class="text-2xl font-semibold mb-4">Admin Dashboard</h2>
+    <nav>
+      <ul>
+        <li><a href="#" class="block py-3">Home</a></li>
+        <li><a routerLink="/customer" class="block py-3">Customers</a></li>
+        <li><a routerLink="/customer" class="block py-3">Products table</a></li>
+        <li><a routerLink="/customer" class="block py-3">Products Categories</a></li>
+        <li><a routerLink="/customer" class="block py-3">Products table</a></li>
+
+
+
+        
+      </ul>
+
+    </nav>
+  </aside> -->
+
+  <nav>
+
+    <div class="bg-gradient-to-r from-blue-900 to-orange-500 flex justify-between mb-4 px-4 from-blue-900 to-gray-800 p-4 shadow text-2xl text-white w-full">
+      <h3 class="font-bold pl-2">Admin Dashboard </h3>
+      <ul class="flex justify-between">
+        <li><a href="#" class="block py-3 mr-4">Home</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Customers</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">ProductsTable</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Categories</a></li>
+      </ul>
+      <div>
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" (click)="visible = !visible">Add Product</button>
+      </div>
+      
+    </div>
+  
+  </nav>
+
+  <div>
+    <h2 class="text-2xl font-semibold mb-4 flex justify-center">Products</h2>
+
+  </div>
+
+  <div class="container mx-auto">
+    <!-- <app-navbar></app-navbar> -->
+  
+      <!-- <app-products></app-products> -->
+   <div class="mt-6">
+    <app-update-product ></app-update-product>
+  
+    </div>
+
+  </div>
+
+
+
+  
+  <div *ngIf = "!visible" class="relative newTour z-10 h-full" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  
+    <div  class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  
+    <div class="fixed createProduct inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+      
+          <div class="pointer-events-auto relative w-screen max-w-md">
+         
+            <div class="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+              <button data-cy="close-create-product-modal" (click)="visible=!visible" type="button" class=" btn relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                <span class="absolute -inset-2.5"></span>
+                <span class="sr-only">Close</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+  
+            <div class="flex modal flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+              <div class="px-4 sm:px-6">
+                <h2 class="text-base font-semibold leading-6 text-gray-900 " id="slide-over-title">ADD PRODUCT </h2>
+              </div>
+              <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                  <!-- Modal content -->
+                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  
+                      <form  class="p-4 md:p-5 " [formGroup]="productForm" (ngSubmit)="createProduct()" >
+                          <div class="mb-4">
+                            <label for="productName" class="block text-sm font-medium text-gray-900">Product Name</label>
+                            <input type="text" formControlName="productName" id="productName" name="productName"
+                              class="text-gray-900 p-2 w-full border rounded-md">
+                          </div>
+        
+                          <div class="mb-4">
+                            <label for="productCategory" class="block text-sm font-medium text-gray-700">Product
+                              Category</label>
+                            <input type="text" formControlName="productCategory" id="productCategory" name="productCategory"
+                              class="text-gray-900 p-2 w-full border rounded-md">
+                          </div>
+        
+                          <div class="mb-4">
+                            <label for="productDescription" class="block text-sm font-medium text-gray-700">Product
+                              Description</label>
+                            <textarea id="productDescription" formControlName="productDescription" name="productDescription"
+                              rows="3" class="text-gray-900 mt-1 p-2 w-full border rounded-md"></textarea>
+                          </div>
+        
+                          <div class="mb-4">
+                            <label for="productCost" class="block text-sm font-medium text-gray-700">Product Cost</label>
+                            <input type="text" formControlName="productCost" id="productCost" name="productCost"
+                              class="text-gray-900 mt-1 p-2 w-full border rounded-md">
+                          </div>
+
+                          <div class="mb-4">
+                            <label for="productImg" class="block text-sm font-medium text-gray-700">Product Image</label>
+                            <input type="text" formControlName="productImg" id="productImg" name="productImg"
+                              class="text-gray-900 mt-1 p-2 w-full border rounded-md">
+                          </div>
+
+                          <div class="mb-4">
+                            <label for="productClassification" class="block text-sm font-medium text-gray-700">Product Classification</label>
+                            <input type="text" formControlName="productClassification" id="productClassification" name="productClassification"
+                              class="text-gray-900 mt-1 p-2 w-full border rounded-md">
+                          </div>
+                          
+                          
+                          <div class="mb-4">
+                            <label for="earlyCost" class="block text-sm font-medium text-gray-700">Early Cost</label>
+                            <input type="text" formControlName="earlyCost" id="earlyCost" name="earlyCost"
+                              class="text-gray-900 mt-1 p-2 w-full border rounded-md">
+                          </div>
+                          
+                          <!-- Add other product form fields based on your product interface -->
+                          
+        
+                          <!-- Add other product form fields based on your product interface -->
+        
+                        
+                          <button  type="submit"  class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                              <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                              Add Product
+                          </button>
+                      </form>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+
+<div class="mt-6">
+  <app-footer></app-footer>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+  
+a:hover,
+a:focus {
+    color: green;
+}
+
+.btn{
+    color: green;
+}
+  
+.btn,
+.btn:focus {
+    
+    outline: none !important;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.myimg {
+    background-image: url('https://media.istockphoto.com/id/1347455404/photo/shot-of-an-unrecognizable-woman-spending-a-day-in-the-city.jpg?s=612x612&w=0&k=20&c=W3-QMPd9D-ok_upk94ooFtb3wnWUZW4Gu8dtYRH3fKI=');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  

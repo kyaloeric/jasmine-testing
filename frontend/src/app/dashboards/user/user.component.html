@@ -1,0 +1,81 @@
+<body  class="bg-gray-100 font-sans flex-1 h-auto">
+  <!-- <aside class="w-1/5 bg-gray-800 text-white p-4">
+    <h2 class="text-2xl font-semibold mb-4">User Dashboard</h2>
+    <nav>
+      <ul>
+        <li><a href="#" class="block py-3">Home</a></li>
+        <li><a href="#" class="block py-3">Profile</a></li>
+        <li><a href="#" class="block py-3">Orders</a></li>
+        <li><a href="#" class="block py-3">Settings</a></li>
+         <li><a href="#" class="block py-2">Logout</a></li> -->
+      <!-- </ul>
+    </nav>
+  </aside> -->
+
+  
+  <div class="">
+    <app-navbar></app-navbar>
+
+
+  </div>
+  
+  <nav class="mt-0">
+
+    <div class=" flex items-center mt-0 bg-gradient-to-r from-blue-900 to-orange-500 flex justify-between mb-4 px-4 from-blue-900 to-gray-800 p-4 shadow text-2xl text-white w-full">
+      <h3 class="font-bold pl-2 flex justify-center">User Dashboard </h3>
+      <ul class="flex justify-between items-center ">
+        <li><a href="#" class="block py-3 mr-4">Home</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Profile</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Orders</a></li>
+        <li><a routerLink="/customer" class="block py-3 mr-4">Settings</a></li>
+        <li><a href="#" class="block py-3 mr-4">Logout</a></li> 
+
+      </ul>
+      
+      
+    </div>
+  
+  </nav>
+
+  <div class="flex text-gray-900 ems-center space-x-4 justify-center">
+    <input [(ngModel)]="filter" 
+      type="text"
+      placeholder="Search for a product here..."
+      class="px-60 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-gray-500"
+    />
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+      Search
+    </button>
+  </div>
+  
+
+
+  <div  class="container mx-auto p-8 h-auto">
+    <!-- <app-products></app-products> -->
+
+    <div 
+      class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
+      
+      <div *ngFor="let product of products" class=" bg-white p-4 rounded-md shadow-md">
+        <img
+          [src]="product.productImg"
+          class="w-full h-48 object-cover mb-2 rounded-md"
+        />`
+        <p class="text-sm">
+          {{product.productName}}
+        </p>
+        <p class="text-lg">{{product.productDescription}}</p>
+        <p class="text-lg font-bold">Ksh : {{product.productCost}}</p>
+
+        <button
+          class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+        >
+          Add to Cart
+        </button>
+      </div>
+         
+    </div>
+  </div>
+ 
+</body>
+<app-footer></app-footer>

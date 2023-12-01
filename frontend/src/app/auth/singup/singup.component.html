@@ -1,0 +1,64 @@
+
+
+
+
+<app-navbar></app-navbar>
+<div class="center pt-4 bg-gray-100 bg-cover bg-center h-screen rounded ">
+
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <h2 class="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-gray-700">Create an account</h2>
+    </div>
+ 
+  
+    <div class="mt-10 sm:mx-auto w-full bg-gray-200 rounded-md h-70  sm:max-w-screen-md shadow-4xl p-6">
+      <form class=" space-y-6 mt-10" [formGroup]="registrationForm" (ngSubmit)="registerUser()" >
+        <div>
+          <label for="fullname" class="block text-md font-medium leading-6 text-gray-900">FullName</label>
+          <div class="mt-2">
+            <input  formControlName="userName"  type="text" autocomplete="fullname" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm px-2 sm:leading-6">
+          
+          </div>
+        </div>
+        <div>
+          <label for="userPhone" class="block text-md font-medium leading-6 text-gray-900">Phone Number</label>
+          <div class="mt-2">
+            <input  formControlName="userPhone"  type="text" autocomplete="phone" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm px-2 sm:leading-6">
+          
+          </div>
+        </div>
+        <div>
+          <label for="email" class="block text-md font-medium leading-6 text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input type="email" formControlName="userEmail" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            
+          </div>
+        </div>
+  
+        <div>
+          <div class="flex items-center justify-between">
+            <label for="password" class="block text-md font-medium leading-6 text-gray-900">Password</label>
+            <div class="text-sm">
+             
+            </div>
+          </div>
+          <div class="mt-2">
+            <input formControlName="userPassword"  type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            
+          </div>
+        </div>
+  
+  
+        <div>
+          <button type="submit" class="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
+        </div>
+      </form>
+        <!-- <div class="text-sm">
+        <a href="#" class="font-semibold text-black hover:text-blue-700">Forgot password?</a>
+      </div>   -->
+      <p class="mt-10 text-center text-sm text-black">
+       Already have an account?
+        <a routerLink = "/login" class="font-semibold leading-6 text-black hover:text-blue-700">Login here</a>
+      </p>
+    </div>
+  </div>
+  
